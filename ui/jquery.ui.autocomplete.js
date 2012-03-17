@@ -123,6 +123,8 @@ $.widget( "ui.autocomplete", {
 					break;
 				default:
 					suppressKeyPressRepeat = true;
+					//close previous lingering searches (useful for slow response from server)
+					self.close();
 					// search timeout should be triggered before the input value is changed
 					self._searchTimeout( event );
 					break;
